@@ -1,10 +1,11 @@
 package com.mixup;
 
+import com.mixup.utils.ScrollableFragmentAdapter;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 
-public class MixUpItemFragmentAdapter extends FragmentPagerAdapter {
+public class MixUpItemFragmentAdapter extends ScrollableFragmentAdapter<MixUpItemFragment> {
 
 	private MixUpItemFragment[] mFragments;
 	
@@ -25,6 +26,11 @@ public class MixUpItemFragmentAdapter extends FragmentPagerAdapter {
 	@Override
 	public int getCount() {
 		return mFragments.length;
+	}
+
+	@Override
+	public MixUpItemFragment[] getFragments() {
+		return mFragments;
 	}
 
 }

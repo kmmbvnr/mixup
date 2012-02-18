@@ -8,10 +8,11 @@
     <ImageView
         android:id="@+id/item_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_vertical|center_horizontal"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/hello"
         android:scaleType="fitXY"
-        android:src="@drawable/item_image_middle"
-        android:contentDescription="@string/hello"/>
+        android:src="@drawable/item_image_middle" />
 
 </FrameLayout>
