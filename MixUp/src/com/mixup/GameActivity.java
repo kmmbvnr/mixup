@@ -6,21 +6,21 @@ import android.support.v4.view.ViewPager;
 
 public class GameActivity extends FragmentActivity {
 	private static Integer[] topImagesArray = new Integer[] {
-		R.drawable.item_image_top,
-		R.drawable.item_image_top,
-		R.drawable.item_image_bottom
+		R.drawable.duck_head,
+		R.drawable.cat_head,
+		R.drawable.horse_head
 	};
 
 	private static Integer[] middleImagesArray = new Integer[] {
-		R.drawable.item_image_middle,
-		R.drawable.item_image_middle,
-		R.drawable.item_image_top,
+		R.drawable.duck_body,
+		R.drawable.cat_body,
+		R.drawable.horse_body,
 	};
 	
 	private static Integer[] bottomImagesArray = new Integer[] {
-		R.drawable.item_image_bottom,
-		R.drawable.item_image_bottom,
-		R.drawable.item_image_middle
+		R.drawable.duck_feet,
+		R.drawable.cat_feet,
+		R.drawable.horse_feet
 	};
 
 	
