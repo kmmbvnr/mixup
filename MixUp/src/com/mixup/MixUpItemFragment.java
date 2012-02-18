@@ -27,7 +27,6 @@ public class MixUpItemFragment extends Fragment {
         mView = inflater.inflate(layoutId, container, false);   
         mMixUpImageView = (ImageView)mView.findViewById(R.id.item_image);
         mMixUpImageView.setImageResource(imageId);
-
 		return mView;
     }
 	
@@ -36,4 +35,6 @@ public class MixUpItemFragment extends Fragment {
 		mView = null;
 		super.onDestroyView();
 	}
+	
+	
 }
