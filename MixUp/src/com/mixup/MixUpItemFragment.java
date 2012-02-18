@@ -11,22 +11,22 @@ public class MixUpItemFragment extends Fragment {
 	
 	private View mView;
 	private ImageView mMixUpImageView;
-	private int layoutId;
-	private int imageId;
+	private int mLayoutId;
+	private int mImageId;
 	
-	public MixUpItemFragment(int layoutId_, Integer imageId_) {
+	public MixUpItemFragment(int layoutId, Integer imageId) {
 		super();
-		layoutId = layoutId_;
-		imageId = imageId_;
+		this.mLayoutId = layoutId;
+		this.mImageId = imageId;
 	}
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 		setRetainInstance(true);
-        mView = inflater.inflate(layoutId, container, false);   
+        mView = inflater.inflate(mLayoutId, container, false);   
         mMixUpImageView = (ImageView)mView.findViewById(R.id.item_image);
-        mMixUpImageView.setImageResource(imageId);
+        mMixUpImageView.setImageResource(mImageId);
 		return mView;
     }
 	

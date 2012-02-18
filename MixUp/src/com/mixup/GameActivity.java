@@ -8,8 +8,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class GameActivity extends FragmentActivity {
+public class GameActivity extends FragmentActivity implements IGameStateListener {
 
+	private int mTopSelectedImageId;
+	private int mMiddleSelectedImageId;
+	private int mBottomSelectedImageId;
+	private GameState mGameState;
+	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,4 +40,41 @@ public class GameActivity extends FragmentActivity {
 			}
         });
     }
+
+	@Override
+	public void stateGhanged(GameState state) {
+		setGameState(state);
+	}
+
+	public void setTopSelectedImageId(int mTopSelectedImageId) {
+		this.mTopSelectedImageId = mTopSelectedImageId;
+	}
+
+	public int getTopSelectedImageId() {
+		return mTopSelectedImageId;
+	}
+
+	public void setMiddleSelectedImageId(int mMiddleSelectedImageId) {
+		this.mMiddleSelectedImageId = mMiddleSelectedImageId;
+	}
+
+	public int getMiddleSelectedImageId() {
+		return mMiddleSelectedImageId;
+	}
+
+	public void setBottomSelectedImageId(int mBottomSelectedImageId) {
+		this.mBottomSelectedImageId = mBottomSelectedImageId;
+	}
+
+	public int getBottomSelectedImageId() {
+		return mBottomSelectedImageId;
+	}
+
+	public void setGameState(GameState gameState) {
+		this.mGameState = gameState;
+	}
+
+	public GameState getGameState() {
+		return mGameState;
+	}
 }
