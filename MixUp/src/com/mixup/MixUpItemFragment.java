@@ -13,7 +13,7 @@ public class MixUpItemFragment extends Fragment {
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.mix_up_item, container, false);        
+        mView = inflater.inflate(R.layout.mixup_item_bottom, container, false);        
 		return mView;
     }
 
