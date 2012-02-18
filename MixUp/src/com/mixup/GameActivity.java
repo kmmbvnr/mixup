@@ -1,7 +1,5 @@
 package com.mixup;
 
-import com.mixup.utils.IndefinityPageScroller;
-
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -9,17 +7,20 @@ import android.support.v4.view.ViewPager;
 public class GameActivity extends FragmentActivity {
 	private static Integer[] topImagesArray = new Integer[] {
 		R.drawable.item_image_top,
-		R.drawable.item_image_top
+		R.drawable.item_image_top,
+		R.drawable.item_image_bottom
 	};
-	
+
 	private static Integer[] middleImagesArray = new Integer[] {
 		R.drawable.item_image_middle,
-		R.drawable.item_image_middle
+		R.drawable.item_image_middle,
+		R.drawable.item_image_top,
 	};
 	
 	private static Integer[] bottomImagesArray = new Integer[] {
 		R.drawable.item_image_bottom,
-		R.drawable.item_image_bottom
+		R.drawable.item_image_bottom,
+		R.drawable.item_image_middle
 	};
 
 	
@@ -34,17 +35,20 @@ public class GameActivity extends FragmentActivity {
 		MixUpItemFragmentAdapter topAdapter = new MixUpItemFragmentAdapter(getSupportFragmentManager(), R.layout.mixup_item_top, topImagesArray);
 		ViewPager topPager = (ViewPager)findViewById(R.id.top_pager);
 		topPager.setAdapter(topAdapter);
-		new IndefinityPageScroller<MixUpItemFragment>(topPager, topAdapter);
+		topPager.setCurrentItem(1, false);
+		new MixUpFragmentScroller(topPager, topAdapter);
 		
 		MixUpItemFragmentAdapter middleAdapter = new MixUpItemFragmentAdapter(getSupportFragmentManager(), R.layout.mixup_item_middle, middleImagesArray);
 		ViewPager middlePager = (ViewPager)findViewById(R.id.middle_pager);
 		middlePager.setAdapter(middleAdapter);
-		new IndefinityPageScroller<MixUpItemFragment>(middlePager, middleAdapter);
+		middlePager.setCurrentItem(1, false);
+		new MixUpFragmentScroller(middlePager, middleAdapter);
 		
 		MixUpItemFragmentAdapter bottomAdapter = new MixUpItemFragmentAdapter(getSupportFragmentManager(), R.layout.mixup_item_bottom, bottomImagesArray);
 		ViewPager bottomPager = (ViewPager)findViewById(R.id.bottom_pager);
 		bottomPager.setAdapter(bottomAdapter);
-		new IndefinityPageScroller<MixUpItemFragment>(bottomPager, bottomAdapter);
+		bottomPager.setCurrentItem(1, false);
+		new MixUpFragmentScroller(bottomPager, bottomAdapter);
 	}
 
 }
