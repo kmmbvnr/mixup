@@ -8,14 +8,13 @@ public class MixUpItemFragmentAdapter extends FragmentPagerAdapter {
 
 	private MixUpItemFragment[] mFragments;
 	
-	public MixUpItemFragmentAdapter(FragmentManager fm) {
+	public MixUpItemFragmentAdapter(FragmentManager fm, int fragmentLayoutId, Integer[] imagesIdArray) {
 		super(fm);
 		
-		mFragments = new MixUpItemFragment [] {
-			new MixUpItemFragment(),
-			new MixUpItemFragment(),
-			new MixUpItemFragment()
-		};
+		mFragments = new MixUpItemFragment [imagesIdArray.length]; 
+		for (int i=0; i<imagesIdArray.length; i++){
+			mFragments[i] = new MixUpItemFragment(fragmentLayoutId, imagesIdArray[i]);
+		}
 	}
 
 	@Override
