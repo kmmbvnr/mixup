@@ -23,7 +23,7 @@ public class MixUpItemFragment extends Fragment {
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+		setRetainInstance(true);
         mView = inflater.inflate(layoutId, container, false);   
         mMixUpImageView = (ImageView)mView.findViewById(R.id.item_image);
         mMixUpImageView.setImageResource(imageId);

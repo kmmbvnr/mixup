@@ -28,6 +28,7 @@ public class GameActivity extends FragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+	
 		setContentView(R.layout.game);
 
 		MixUpItemFragmentAdapter topAdapter = new MixUpItemFragmentAdapter(getSupportFragmentManager(), R.layout.mixup_item_top, topImagesArray);
@@ -45,5 +46,6 @@ public class GameActivity extends FragmentActivity {
 		bottomPager.setAdapter(bottomAdapter);
 		new IndefinityPageScroller<MixUpItemFragment>(bottomPager, bottomAdapter);
 	}
+
 }
 
