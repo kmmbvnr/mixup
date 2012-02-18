@@ -9,8 +9,8 @@ import android.widget.Button;
 
 public class MainActivity extends Activity implements OnClickListener {
     private Button mWhoBtn;
+	private Button mPuzzleBtn;
 
-	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,14 +19,18 @@ public class MainActivity extends Activity implements OnClickListener {
 
         mWhoBtn = (Button)findViewById(R.id.btn_who);
         mWhoBtn.setOnClickListener(this);
+        
+        mPuzzleBtn = (Button)findViewById(R.id.btn_puzzle);
+        mPuzzleBtn.setOnClickListener(this);
     }
 
 	@Override
 	public void onClick(View view) {
 		if(view == mWhoBtn) {
 			startActivity(new Intent(this, GameActivity.class));
+		} else if(view == mPuzzleBtn) {
+			startActivity(new Intent(this, PuzzleActivity.class));
 		}
-		
 	}
     
 
