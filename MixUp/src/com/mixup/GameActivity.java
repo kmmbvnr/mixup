@@ -1,5 +1,7 @@
 package com.mixup;
 
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -18,7 +20,18 @@ public class GameActivity extends FragmentActivity {
         button.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-			//	button.setSelected(true);
+				MediaPlayer mp = MediaPlayer.create(GameActivity.this, R.raw.sample);   
+                mp.start();
+                mp.setOnCompletionListener(new OnCompletionListener() {
+
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        // TODO Auto-generated method stub
+                        mp.release();
+                    }
+
+                });
+
 			}
         });
     }
