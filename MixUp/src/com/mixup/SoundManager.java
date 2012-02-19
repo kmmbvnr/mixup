@@ -3,8 +3,14 @@ package com.mixup;
 import java.util.HashMap;
 
 import android.content.Context;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 
 public class SoundManager {
+	
+	private static final Integer CAT = 1;
+	private static final Integer GOOSE = 2;
+	private static final Integer HORSE = 3;
 	
 	private static final HashMap<Integer, Integer> ANIMAL_NAMES = new HashMap<Integer, Integer>() {
 		/**
@@ -38,14 +44,29 @@ public class SoundManager {
 		}
 	};
 	
-	private static final Integer CAT = 1;
-	private static final Integer GOOSE = 2;
-	private static final Integer HORSE = 3;
+	private static final Integer FULL_SOUND = 0;
+	private static final Integer PART_SOUND = 1;
 	
 	public void playStateSound(GameState state, Context context) {
-		
-		
+		Integer[] sounds = getSoundArrayForState(state);
+		playSound(context, sounds, 0);
 	}
+        
+     
+	private void playSound(final Context context, final Integer[] sounds, final Integer soundIndex) {
+		if (soundIndex < sounds.length) {
+			MediaPlayer mp = MediaPlayer.create(context, sounds[soundIndex]);   
+	        mp.start();
+	        mp.setOnCompletionListener(new OnCompletionListener() {
+	            @Override
+	            public void onCompletion(MediaPlayer mp) {
+	                mp.release();
+	                playSound(context, sounds, soundIndex+1);
+	            }
+	        });	
+		}	
+	}
+        
 	
 	private Integer[] getSoundArrayForState(GameState state) {
 		Integer topAnimal = ANIMAL_NAMES.get(state.getTopImageId());
@@ -54,12 +75,20 @@ public class SoundManager {
 		
 		if (topAnimal.equals(middleAnimal)) {
 			if (topAnimal.equals(bottomAnimal))
-				return new Integer[]{ANIMAL_SOUND.get(topAnimal)[0]};
-			
+				return new Integer[]{ANIMAL_SOUND.get(topAnimal)[FULL_SOUND]};
+			else 
+				return new Integer[]{ANIMAL_SOUND.get(topAnimal)[PART_SOUND], 
+					                 ANIMAL_SOUND.get(bottomAnimal)[FULL_SOUND]};
 		}
-		return null;
-		
-		
+		else {
+			if (middleAnimal.equals(bottomAnimal))
+				return new Integer[]{ANIMAL_SOUND.get(topAnimal)[PART_SOUND],
+					                 ANIMAL_SOUND.get(middleAnimal)[FULL_SOUND]};
+			else 
+				return new Integer[]{ANIMAL_SOUND.get(topAnimal)[PART_SOUND], 
+				                     ANIMAL_SOUND.get(middleAnimal)[PART_SOUND],
+				                     ANIMAL_SOUND.get(bottomAnimal)[FULL_SOUND]};
+		}	
 	}
 
 }

@@ -8,6 +8,7 @@ public class MixUpFragmentScroller implements OnPageChangeListener {
 
 	private ViewPager mViewPager;
 	private FragmentPagerAdapter mPagerAdapter;
+	private IScrollerPageChangeListener mPagerListener;
 
 	public MixUpFragmentScroller(ViewPager viewPager, FragmentPagerAdapter pagerAdapter) {
 		mViewPager = viewPager;
@@ -35,5 +36,18 @@ public class MixUpFragmentScroller implements OnPageChangeListener {
 	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
 
 	@Override
-	public void onPageSelected(int position) {}	
+	public void onPageSelected(int position) {
+		mPagerListener.onScrollerPageChanged();
+	}
+
+	public void setPagerListener(IScrollerPageChangeListener mPagerListener) {
+		this.mPagerListener = mPagerListener;
+	}
+
+	public IScrollerPageChangeListener getPagerListener() {
+		return mPagerListener;
+	}	
+	
+
+
 }
