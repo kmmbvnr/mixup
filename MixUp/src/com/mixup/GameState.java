@@ -52,7 +52,7 @@ public class GameState {
 			int topAnimal = SoundManager.ANIMAL_NAMES.get(mTopImageId);
 			int bottomAnimal = SoundManager.ANIMAL_NAMES.get(mBottomImageId);
 			int middleAnimal = SoundManager.ANIMAL_NAMES.get(mMiddleImageId);
-			int otherMiddleAnimal = SoundManager.ANIMAL_NAMES.get(mMiddleImageId);
+			int otherMiddleAnimal = SoundManager.ANIMAL_NAMES.get(other.mMiddleImageId);
 			
 			if(middleAnimal == topAnimal || middleAnimal == bottomAnimal) {
 				return mTopImageId.equals(other.mTopImageId)
