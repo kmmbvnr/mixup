@@ -28,6 +28,5 @@ public class MixUpItemFragmentAdapter extends FragmentPagerAdapter {
 	public int getCount() {
 		return mFragments.length;
 	}
-	
 
 }

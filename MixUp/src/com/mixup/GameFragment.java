@@ -1,5 +1,7 @@
 package com.mixup;
 
+import java.util.Random;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -29,7 +31,7 @@ public class GameFragment extends Fragment implements IScrollerPageChangeListene
 	private ViewPager mTopPager;
 	private ViewPager mMiddlePager;
 	private ViewPager mBottomPager;
-	
+	private Random mRandom;
 	private IGameStateListener mStateListener;
 	
 	@Override
@@ -59,10 +61,18 @@ public class GameFragment extends Fragment implements IScrollerPageChangeListene
 		MixUpFragmentScroller bottomScroller = new MixUpFragmentScroller(mBottomPager, bottomAdapter);
 		bottomScroller.setPagerListener(this);
 		
+		mRandom = new Random();
+		
 		return view;
 	}
 	
-	public int decodeCurrentPosition(int position) {
+	public void shuffleImages() {
+		mTopPager.setCurrentItem(mRandom.nextInt()%topImagesArray.length, true);
+		mMiddlePager.setCurrentItem(mRandom.nextInt()%middleImagesArray.length, true);
+		mBottomPager.setCurrentItem(mRandom.nextInt()%bottomImagesArray.length, true);
+	}
+	
+	private int decodeCurrentPosition(int position) {
 		if (position==0)
 			return topImagesArray.length-1;
 		if (position==topImagesArray.length+1)
