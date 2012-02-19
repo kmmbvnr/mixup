@@ -22,7 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/who_am_i_button" />
+        android:background="@drawable/check_button" />
 
     <TextView
         android:id="@+id/timer"
