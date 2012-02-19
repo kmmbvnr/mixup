@@ -11,6 +11,9 @@ public class SoundManager {
 	private static final Integer CAT = 1;
 	private static final Integer GOOSE = 2;
 	private static final Integer HORSE = 3;
+	private static final Integer BEE = 4;
+	private static final Integer DOLPHIN = 5;
+	
 	
 	private static final HashMap<Integer, Integer> ANIMAL_NAMES = new HashMap<Integer, Integer>() {
 		/**
@@ -28,6 +31,9 @@ public class SoundManager {
 			put(R.drawable.horse_head, HORSE);
 			put(R.drawable.horse_body, HORSE);
 			put(R.drawable.horse_feet, HORSE);
+			put(R.drawable.bee_head, BEE);
+			put(R.drawable.bee_body, BEE);
+			put(R.drawable.bee_feet, BEE);
 		}
 		
 	};
@@ -38,9 +44,11 @@ public class SoundManager {
 		 */
 		private static final long serialVersionUID = 2303590782329043721L;
 		{
-			put(CAT, new Integer[]{R.raw.sample, R.raw.sample});
-			put(GOOSE, new Integer[]{R.raw.sample, R.raw.sample});
-			put(HORSE, new Integer[]{R.raw.sample, R.raw.sample});
+			put(CAT, new Integer[]{R.raw.cat_full, R.raw.cat_part});
+			put(GOOSE, new Integer[]{R.raw.goose_full, R.raw.goose_part});
+			put(HORSE, new Integer[]{R.raw.horse_full, R.raw.horse_part});
+			put(BEE, new Integer[]{R.raw.bee_full2, R.raw.bee_part});
+			put(DOLPHIN, new Integer[]{R.raw.dolphin_full, R.raw.dolphin_part});
 		}
 	};
 	
@@ -55,7 +63,7 @@ public class SoundManager {
 	public void playPuzzleSound(GameState state, Context context) {
 		Integer[] sounds = getSoundArrayForState(state);
 		Integer[] allSounds = new Integer[sounds.length+1];
-		allSounds[0] = R.raw.sample;
+		allSounds[0] = R.raw.how_it_looks;
 		for (int i=0; i<sounds.length; i++)
 			allSounds[i+1] = sounds[i];
 		
