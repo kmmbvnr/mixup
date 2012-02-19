@@ -1,10 +1,14 @@
 package com.mixup;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -19,8 +23,12 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
 	private int mBottomSelectedImageId;
 	private GameState mGameState;
 	private SoundManager soundManager;
-	
 	private GameFragment mGameFragment;
+	private SensorManager mSensorManager;
+	private float mAccel;        // acceleration apart from gravity
+	private float mAccelCurrent; // current acceleration including gravity
+	private float mAccelLast;    // last acceleration including gravity
+	private Timer mAccelTimer;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,25 +48,25 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
 				soundManager.playStateSound(mGameState, GameActivity.this);
 			}
         });
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
         mAccel = 0.00f;
         mAccelCurrent = SensorManager.GRAVITY_EARTH;
         mAccelLast = SensorManager.GRAVITY_EARTH;
-
 	}
      
 	@Override
-	  protected void onResume() {
+	protected void onResume() {
 	    super.onResume();
-	    mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
-	  }
+	    mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+	}
 
-	  @Override
-	  protected void onStop() {
-	    mSensorManager.unregisterListener(mSensorListener);
+	@Override
+	protected void onStop() {
+	    mSensorManager.unregisterListener(this);
 	    super.onStop();
-	  }
+	}
 
 
 	@Override
@@ -99,43 +107,38 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
 	}
 
 	@Override
-	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 
 	@Override
-	public void onSensorChanged(SensorEvent event) {
-		// TODO Auto-generated method stub
-		
+	public void onSensorChanged(SensorEvent se) {
+		  float x = se.values[0];
+		  float y = se.values[1];
+		  float z = se.values[2];
+		  mAccelLast = mAccelCurrent;
+		  mAccelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));
+		  float delta = mAccelCurrent - mAccelLast;
+		  mAccel = mAccel * 0.9f + delta; // perform low-cut filter
+		  
+		  if (mAccel > 2) {
+			  if(mAccelTimer != null) {
+				 mAccelTimer.cancel();
+			  }
+			  mAccelTimer = new Timer();
+			  mAccelTimer.schedule(new TimerTask() {
+				@Override
+				public void run() {
+					GameActivity.this.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							shuffleImages();
+							mAccelTimer=null;
+						}
+					});				
+				}
+			}, 1000);
+		  }
 	}
 	
-	/* put this into your activity class */
-	  private SensorManager mSensorManager;
-	  private float mAccel; // acceleration apart from gravity
-	  private float mAccelCurrent; // current acceleration including gravity
-	  private float mAccelLast; // last acceleration including gravity
-	  private final SensorEventListener mSensorListener = new SensorEventListener() {
-
-		  public void onSensorChanged(SensorEvent se) {
-			  float x = se.values[0];
-			  float y = se.values[1];
-			  float z = se.values[2];
-			  mAccelLast = mAccelCurrent;
-			  mAccelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));
-			  float delta = mAccelCurrent - mAccelLast;
-			  mAccel = mAccel * 0.9f + delta; // perform low-cut filter
-			  
-			  if (mAccel > 2) {
-				  shuffleImages();
-				  
-			  }
-		  }
-
-		  public void onAccuracyChanged(Sensor sensor, int accuracy) {
-		  }
-	  };
-
 	protected void shuffleImages() {
 		mGameFragment.shuffleImages();
 	}
