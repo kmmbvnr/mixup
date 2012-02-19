@@ -1,5 +1,8 @@
 package com.mixup;
 
+import java.util.HashMap;
+
+import android.R.string;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -10,19 +13,19 @@ import android.view.ViewGroup;
 
 public class GameFragment extends Fragment implements OnPageChangeListener {
 	private static Integer[] topImagesArray = new Integer[] {
-		R.drawable.duck_head,
+		R.drawable.goose_head,
 		R.drawable.cat_head,
 		R.drawable.horse_head
 	};
 
 	private static Integer[] middleImagesArray = new Integer[] {
-		R.drawable.duck_body,
+		R.drawable.goose_body,
 		R.drawable.cat_body,
 		R.drawable.horse_body,
 	};
 	
 	private static Integer[] bottomImagesArray = new Integer[] {
-		R.drawable.duck_feet,
+		R.drawable.goose_feet,
 		R.drawable.cat_feet,
 		R.drawable.horse_feet
 	};
@@ -89,9 +92,6 @@ public class GameFragment extends Fragment implements OnPageChangeListener {
 	public IGameStateListener getStateListener() {
 		return mStateListener;
 	}
-
-
-
 
 }
 
