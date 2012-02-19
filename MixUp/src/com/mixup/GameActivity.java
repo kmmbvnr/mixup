@@ -19,13 +19,12 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
-
+        
+        soundManager = new SoundManager();
+    
         FragmentManager fragmentManager = getSupportFragmentManager();
         GameFragment gameFragment = (GameFragment)fragmentManager.findFragmentById(R.id.game_fragment);
         gameFragment.setStateListener(this);
-        
-        soundManager = new SoundManager();
-        mGameState = new GameState();
         
         final Button button = (Button) findViewById(R.id.who_am_i_button);
         button.setOnClickListener(new OnClickListener() {

@@ -1,6 +1,5 @@
 package com.mixup;
 
-
 public class GameState {
 	
 	private Integer mTopImageId;
