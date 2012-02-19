@@ -35,6 +35,8 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
 	private Button mCheckBtn;
 
 	private GameState mState;
+	
+	private SoundManager mSoundManager;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,11 +51,15 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
         GameFragment gameFragment = (GameFragment)fragmentManager.findFragmentById(R.id.game_fragment);
         gameFragment.setStateListener(this);
         
+        mSoundManager = new SoundManager();
+        
         startNewLevel();
 	}
 	
 	public void startNewLevel() {
 		mCurrentPuzzle = new Puzzle(LEVELS[mCurrentLevel][1]);
+		mSoundManager.playStateSound(mCurrentPuzzle.getPuzzle(), this);
+		mSoundManager.playPuzzleSound(mCurrentPuzzle.getPuzzle(), this);
 		mStartTime = System.currentTimeMillis();
 		mTimerText.setTextColor(getResources().getColor(R.color.default_text_color));
 		mTimer = new Timer();

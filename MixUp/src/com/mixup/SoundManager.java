@@ -66,7 +66,7 @@ public class SoundManager {
 		allSounds[0] = R.raw.how_it_looks;
 		for (int i=0; i<sounds.length; i++)
 			allSounds[i+1] = sounds[i];
-		
+		playSound(context, allSounds, 0);
 	}
          
 	private void playSound(final Context context, final Integer[] sounds, final Integer soundIndex) {

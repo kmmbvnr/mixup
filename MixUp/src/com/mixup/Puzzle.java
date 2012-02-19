@@ -5,6 +5,15 @@ import java.util.Random;
 
 public class Puzzle {
 	private GameState mPuzzle;
+	
+	public GameState getPuzzle() {
+		return mPuzzle;
+	}
+
+	public void setPuzzle(GameState mPuzzle) {
+		this.mPuzzle = mPuzzle;
+	}
+
 	private Random mRand;
 	
 	public Puzzle(int level) {
