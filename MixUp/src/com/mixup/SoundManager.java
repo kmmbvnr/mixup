@@ -34,6 +34,10 @@ public class SoundManager {
 			put(R.drawable.bee_head, BEE);
 			put(R.drawable.bee_body, BEE);
 			put(R.drawable.bee_feet, BEE);
+			put(R.drawable.dolphin_head, DOLPHIN);
+			put(R.drawable.dolphin_body, DOLPHIN);
+			put(R.drawable.dolphin_feet, DOLPHIN);
+			
 		}
 		
 	};

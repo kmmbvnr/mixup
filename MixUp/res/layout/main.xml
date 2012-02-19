@@ -33,5 +33,14 @@
         android:layout_below="@+id/btn_who"
         android:layout_marginTop="15dp"
         android:background="@drawable/who_am_i_button" />
+     
+     <Button
+        android:id="@+id/btn_about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_puzzle"
+        android:layout_below="@+id/btn_puzzle"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/who_am_i_button" />
 
 </RelativeLayout>

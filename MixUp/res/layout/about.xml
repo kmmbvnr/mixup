@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:src="@drawable/background" >
+    
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id= "@+id/text_view_first"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:textSize="30dp"
+    	android:text="Подгурская Виталия" >
+    </TextView>
+    
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:id= "@+id/text_view_second"
+    	android:layout_width="fill_parent"
+  	  	android:layout_height="wrap_content"
+  	  	android:textSize="30dp"
+    	android:layout_alignLeft="@+id/text_view_first"
+    	android:layout_below="@+id/text_view_first"
+   		android:text="Подгурская Михаил" >
+    </TextView>
+    
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id= "@+id/text_view_third"
+   		android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:textSize="30dp"
+    	android:layout_alignLeft="@+id/text_view_second"
+    	android:layout_below="@+id/text_view_second"
+    	android:text="Артамонова Татьяна" >
+    </TextView>
+    
+</RelativeLayout>

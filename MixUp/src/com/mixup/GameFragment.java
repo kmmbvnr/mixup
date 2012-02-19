@@ -14,21 +14,24 @@ public class GameFragment extends Fragment implements IScrollerPageChangeListene
 		R.drawable.goose_head,
 		R.drawable.cat_head,
 		R.drawable.horse_head,
-		R.drawable.bee_head
+		R.drawable.bee_head,
+		R.drawable.dolphin_head
 	};
 
 	public static Integer[] middleImagesArray = new Integer[] {
 		R.drawable.goose_body,
 		R.drawable.cat_body,
 		R.drawable.horse_body,
-		R.drawable.bee_body
+		R.drawable.bee_body,
+		R.drawable.dolphin_body
 	};
 	
 	public static Integer[] bottomImagesArray = new Integer[] {
 		R.drawable.goose_feet,
 		R.drawable.cat_feet,
 		R.drawable.horse_feet,
-		R.drawable.bee_feet
+		R.drawable.bee_feet,
+		R.drawable.dolphin_feet
 	};
 
 	private ViewPager mTopPager;
