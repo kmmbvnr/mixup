@@ -1,5 +1,7 @@
 package com.mixup;
 
+import android.test.IsolatedContext;
+
 public class GameState {
 	
 	private Integer mTopImageId;
@@ -44,4 +46,14 @@ public class GameState {
 		return mBottomImageId;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if(o != null && o instanceof GameState) {
+			GameState other = (GameState)o;
+			return mTopImageId == other.mTopImageId 
+					&& mMiddleImageId == other.mMiddleImageId
+					&& mBottomImageId == other.mBottomImageId;
+		}
+		return false;
+	}
 }

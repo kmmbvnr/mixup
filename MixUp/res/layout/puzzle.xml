@@ -10,13 +10,13 @@
         android:name="com.mixup.GameFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/who_am_i_button"
+        android:layout_above="@+id/check_button"
         android:layout_alignParentLeft="true" >
         <!-- Preview: layout=@layout/game_fragment -->
     </fragment>
 
     <Button
-        android:id="@+id/who_am_i_button"
+        android:id="@+id/check_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
