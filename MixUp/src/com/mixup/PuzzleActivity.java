@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class PuzzleActivity extends FragmentActivity implements OnClickListener, android.view.View.OnClickListener, IGameStateListener {
 	private static final int[][] LEVELS = {
-		{ 300, 1 },
+		{ 300, 3 },
 		{ 250, 1 },
 		{ 200, 1 },
 		{ 150, 2 },
@@ -38,6 +38,8 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
 	
 	private SoundManager mSoundManager;
 
+	private GameFragment mGameFragment;
+
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,17 +50,21 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
         mCheckBtn.setOnClickListener(this);
         
         FragmentManager fragmentManager = getSupportFragmentManager();
-        GameFragment gameFragment = (GameFragment)fragmentManager.findFragmentById(R.id.game_fragment);
-        gameFragment.setStateListener(this);
+        mGameFragment = (GameFragment)fragmentManager.findFragmentById(R.id.game_fragment);
+        mGameFragment.setStateListener(this);
         
         mSoundManager = new SoundManager();
-        
+		mGameFragment.shuffleImages();
+	}
+	
+	@Override
+	protected void onStart() {
         startNewLevel();
+        super.onStart();
 	}
 	
 	public void startNewLevel() {
 		mCurrentPuzzle = new Puzzle(LEVELS[mCurrentLevel][1]);
-		mSoundManager.playStateSound(mCurrentPuzzle.getPuzzle(), this);
 		mSoundManager.playPuzzleSound(mCurrentPuzzle.getPuzzle(), this);
 		mStartTime = System.currentTimeMillis();
 		mTimerText.setTextColor(getResources().getColor(R.color.default_text_color));

@@ -49,7 +49,7 @@ public class Puzzle {
 		int lastPic = firstPic;
 		int middlePic = firstPic;
 	
-		while(lastPic != firstPic) {
+		while(lastPic == firstPic) {
 			lastPic = mRand.nextInt(GameFragment.topImagesArray.length);
 		}
 		
@@ -74,12 +74,13 @@ public class Puzzle {
 		int lastPic = firstPic;
 		int middlePic = firstPic;
 		
-		while(lastPic != firstPic) {
+		while(lastPic == firstPic) {
 			lastPic = mRand.nextInt(GameFragment.topImagesArray.length);
 		}
-		
-		middlePic = (GameFragment.topImagesArray.length+1)*GameFragment.topImagesArray.length/2 - firstPic - lastPic;
-		
+
+		while(middlePic == firstPic || middlePic == lastPic) {
+			middlePic = mRand.nextInt(GameFragment.topImagesArray.length);
+		}
 		mPuzzle = new GameState(
 				GameFragment.topImagesArray[firstPic], 
 				GameFragment.middleImagesArray[middlePic], 
