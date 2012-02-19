@@ -8,17 +8,14 @@ import android.media.MediaPlayer.OnCompletionListener;
 
 public class SoundManager {
 	
-	private static final Integer CAT = 1;
-	private static final Integer GOOSE = 2;
-	private static final Integer HORSE = 3;
-	private static final Integer BEE = 4;
-	private static final Integer DOLPHIN = 5;
+	public static final Integer CAT = 1;
+	public static final Integer GOOSE = 2;
+	public static final Integer HORSE = 3;
+	public static final Integer BEE = 4;
+	public static final Integer DOLPHIN = 5;
 	
 	
-	private static final HashMap<Integer, Integer> ANIMAL_NAMES = new HashMap<Integer, Integer>() {
-		/**
-		 * 
-		 */
+	public static final HashMap<Integer, Integer> ANIMAL_NAMES = new HashMap<Integer, Integer>() {
 		private static final long serialVersionUID = -8836643891432595645L;
 
 		{

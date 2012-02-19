@@ -48,9 +48,21 @@ public class GameState {
 	public boolean equals(Object o) {
 		if(o != null && o instanceof GameState) {
 			GameState other = (GameState)o;
-			return mTopImageId.equals(other.mTopImageId)
-					&& mMiddleImageId.equals(other.mMiddleImageId)
-					&& mBottomImageId.equals(other.mBottomImageId);
+			
+			int topAnimal = SoundManager.ANIMAL_NAMES.get(mTopImageId);
+			int bottomAnimal = SoundManager.ANIMAL_NAMES.get(mBottomImageId);
+			int middleAnimal = SoundManager.ANIMAL_NAMES.get(mMiddleImageId);
+			int otherMiddleAnimal = SoundManager.ANIMAL_NAMES.get(mMiddleImageId);
+			
+			if(middleAnimal == topAnimal || middleAnimal == bottomAnimal) {
+				return mTopImageId.equals(other.mTopImageId)
+						&& mBottomImageId.equals(other.mBottomImageId)
+						&& (otherMiddleAnimal == topAnimal || otherMiddleAnimal == bottomAnimal);
+			} else {
+				return mTopImageId.equals(other.mTopImageId)
+						&& mMiddleImageId.equals(other.mMiddleImageId)
+						&& mBottomImageId.equals(other.mBottomImageId);
+			}
 		}
 		return false;
 	}
