@@ -1,7 +1,5 @@
 package com.mixup;
 
-import android.test.IsolatedContext;
-
 public class GameState {
 	
 	private Integer mTopImageId;
