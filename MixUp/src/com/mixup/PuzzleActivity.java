@@ -36,4 +36,10 @@ public class PuzzleActivity extends FragmentActivity {
 			}
 		}, 0, 1000);
 	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		mTimer.cancel();
+	}
 }

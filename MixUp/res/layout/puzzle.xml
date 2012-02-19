@@ -31,6 +31,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text=""
+        style="@style/OverlayText"
+        android:layout_margin="5dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="30dp" />
 
