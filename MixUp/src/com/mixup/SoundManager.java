@@ -47,7 +47,7 @@ public class SoundManager {
 			put(CAT, new Integer[]{R.raw.cat_full, R.raw.cat_part});
 			put(GOOSE, new Integer[]{R.raw.goose_full, R.raw.goose_part});
 			put(HORSE, new Integer[]{R.raw.horse_full, R.raw.horse_part});
-			put(BEE, new Integer[]{R.raw.bee_full2, R.raw.bee_part});
+			put(BEE, new Integer[]{R.raw.bee_full, R.raw.bee_part});
 			put(DOLPHIN, new Integer[]{R.raw.dolphin_full, R.raw.dolphin_part});
 		}
 	};
