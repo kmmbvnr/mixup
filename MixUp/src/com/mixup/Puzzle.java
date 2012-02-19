@@ -25,8 +25,10 @@ public class Puzzle {
 			break;
 		case 2:
 			initLevel2();
+			break;
 		case 3:
 			initLevel3();
+			break;
 		}
 	}
 	

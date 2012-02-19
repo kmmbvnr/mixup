@@ -8,7 +8,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -135,7 +134,7 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
 						}
 					});				
 				}
-			}, 1000);
+			}, 500);
 		  }
 	}
 	
