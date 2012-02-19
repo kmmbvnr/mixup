@@ -12,19 +12,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class GameFragment extends Fragment implements OnPageChangeListener {
-	private static Integer[] topImagesArray = new Integer[] {
+	public static Integer[] topImagesArray = new Integer[] {
 		R.drawable.goose_head,
 		R.drawable.cat_head,
 		R.drawable.horse_head
 	};
 
-	private static Integer[] middleImagesArray = new Integer[] {
+	public static Integer[] middleImagesArray = new Integer[] {
 		R.drawable.goose_body,
 		R.drawable.cat_body,
 		R.drawable.horse_body,
 	};
 	
-	private static Integer[] bottomImagesArray = new Integer[] {
+	public static Integer[] bottomImagesArray = new Integer[] {
 		R.drawable.goose_feet,
 		R.drawable.cat_feet,
 		R.drawable.horse_feet
