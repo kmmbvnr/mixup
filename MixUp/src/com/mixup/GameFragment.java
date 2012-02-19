@@ -1,17 +1,13 @@
 package com.mixup;
 
-import java.util.HashMap;
-
-import android.R.string;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class GameFragment extends Fragment implements OnPageChangeListener {
+public class GameFragment extends Fragment implements IScrollerPageChangeListener {
 	public static Integer[] topImagesArray = new Integer[] {
 		R.drawable.goose_head,
 		R.drawable.cat_head,
@@ -46,51 +42,58 @@ public class GameFragment extends Fragment implements OnPageChangeListener {
 		mTopPager = (ViewPager)view.findViewById(R.id.top_pager);
 		mTopPager.setAdapter(topAdapter);
 		mTopPager.setCurrentItem(1, false);
-		new MixUpFragmentScroller(mTopPager, topAdapter);
+		MixUpFragmentScroller topScroller = new MixUpFragmentScroller(mTopPager, topAdapter);
+		topScroller.setPagerListener(this);
 		
 		MixUpItemFragmentAdapter middleAdapter = new MixUpItemFragmentAdapter(getFragmentManager(), R.layout.mixup_item_middle, middleImagesArray);
 		mMiddlePager = (ViewPager)view.findViewById(R.id.middle_pager);
 		mMiddlePager.setAdapter(middleAdapter);
 		mMiddlePager.setCurrentItem(1, false);
-		new MixUpFragmentScroller(mMiddlePager, middleAdapter);
+		MixUpFragmentScroller middleScroller = new MixUpFragmentScroller(mMiddlePager, middleAdapter);
+		middleScroller.setPagerListener(this);
 		
 		MixUpItemFragmentAdapter bottomAdapter = new MixUpItemFragmentAdapter(getFragmentManager(), R.layout.mixup_item_bottom, bottomImagesArray);
 		mBottomPager = (ViewPager)view.findViewById(R.id.bottom_pager);
 		mBottomPager.setAdapter(bottomAdapter);
 		mBottomPager.setCurrentItem(1, false);
-		new MixUpFragmentScroller(mBottomPager, bottomAdapter);
+		MixUpFragmentScroller bottomScroller = new MixUpFragmentScroller(mBottomPager, bottomAdapter);
+		bottomScroller.setPagerListener(this);
 		
 		return view;
 	}
-
-
-	@Override
-	public void onPageScrollStateChanged(int arg0) {
+	
+	public int decodeCurrentPosition(int position) {
+		if (position==0)
+			return topImagesArray.length-1;
+		if (position==topImagesArray.length+1)
+			return 0;
+		return position-1;
 		
 	}
 
-
-	@Override
-	public void onPageScrolled(int arg0, float arg1, int arg2) {
-		
-	}
-
-
-	@Override
-	public void onPageSelected(int arg0) {
-		mStateListener.stateGhanged(new GameState(topImagesArray[mTopPager.getCurrentItem()], 
-				middleImagesArray[mMiddlePager.getCurrentItem()], 
-				bottomImagesArray[mBottomPager.getCurrentItem()]));
+	private void notifyListener() {
+		int topImageIndex = decodeCurrentPosition(mTopPager.getCurrentItem());
+		int middleImageIndex = decodeCurrentPosition(mMiddlePager.getCurrentItem());
+		int bottomImageIndex = decodeCurrentPosition(mBottomPager.getCurrentItem());
+		mStateListener.stateGhanged(new GameState(topImagesArray[topImageIndex], 
+				middleImagesArray[middleImageIndex], 
+				bottomImagesArray[bottomImageIndex]));
 	}
 
 
 	public void setStateListener(IGameStateListener mStateListener) {
 		this.mStateListener = mStateListener;
+		notifyListener();
 	}
 
 
 	public IGameStateListener getStateListener() {
 		return mStateListener;
+	}
+
+	@Override
+	public void onScrollerPageChanged() {
+		notifyListener();	
 	}
 
 }

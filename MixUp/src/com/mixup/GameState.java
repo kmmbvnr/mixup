@@ -14,6 +14,9 @@ public class GameState {
 		this.mBottomImageId = bottomImageId;
 	}
 	
+	public GameState() {
+	}
+
 	@Override
 	public int hashCode() {
 		return mTopImageId.hashCode() + mMiddleImageId.hashCode() + mBottomImageId.hashCode();

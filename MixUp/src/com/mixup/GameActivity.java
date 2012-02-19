@@ -1,7 +1,5 @@
 package com.mixup;
 
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -15,6 +13,7 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
 	private int mMiddleSelectedImageId;
 	private int mBottomSelectedImageId;
 	private GameState mGameState;
+	private SoundManager soundManager;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,21 +24,14 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
         GameFragment gameFragment = (GameFragment)fragmentManager.findFragmentById(R.id.game_fragment);
         gameFragment.setStateListener(this);
         
+        soundManager = new SoundManager();
+        mGameState = new GameState();
+        
         final Button button = (Button) findViewById(R.id.who_am_i_button);
         button.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				MediaPlayer mp = MediaPlayer.create(GameActivity.this, R.raw.sample);   
-                mp.start();
-                mp.setOnCompletionListener(new OnCompletionListener() {
-
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        mp.release();
-                    }
-
-                });
-
+				soundManager.playStateSound(mGameState, GameActivity.this);
 			}
         });
     }
@@ -68,7 +60,7 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
 	public void setBottomSelectedImageId(int mBottomSelectedImageId) {
 		this.mBottomSelectedImageId = mBottomSelectedImageId;
 	}
-
+ 
 	public int getBottomSelectedImageId() {
 		return mBottomSelectedImageId;
 	}
