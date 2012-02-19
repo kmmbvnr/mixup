@@ -15,14 +15,14 @@
         android:layout_marginTop="28dp"
         android:src="@drawable/logo" 
         android:contentDescription="@string/hello"/>
-
+    
     <Button
         android:id="@+id/btn_who"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/main_logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/who_am_i_button" />
 
      <Button
@@ -42,5 +42,16 @@
         android:layout_below="@+id/btn_puzzle"
         android:layout_marginTop="15dp"
         android:background="@drawable/who_am_i_button" />
+
+     <ImageView
+         android:id="@+id/imageView1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="True"
+         android:layout_below="@+id/btn_about"
+         android:contentDescription="@string/hello"
+         android:scaleType="fitXY"
+         android:layout_marginTop="15dp"
+         android:src="@drawable/logo_bottom" />
 
 </RelativeLayout>

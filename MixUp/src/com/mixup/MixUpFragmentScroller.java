@@ -14,7 +14,7 @@ public class MixUpFragmentScroller implements OnPageChangeListener {
 		mViewPager = viewPager;
 		mPagerAdapter = pagerAdapter;
 		mViewPager.setOnPageChangeListener(this);
-		mViewPager.setOffscreenPageLimit(mPagerAdapter.getCount()/2);
+		mViewPager.setOffscreenPageLimit(mPagerAdapter.getCount()/2+1);
 	}
 
 	@Override
