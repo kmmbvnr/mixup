@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class PuzzleActivity extends FragmentActivity implements OnClickListener, android.view.View.OnClickListener, IGameStateListener {
 	private static final int[][] LEVELS = {
-		{ 300, 3 },
+		{ 300, 1 },
 		{ 250, 1 },
 		{ 200, 1 },
 		{ 150, 2 },
