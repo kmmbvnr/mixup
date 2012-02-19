@@ -13,19 +13,22 @@ public class GameFragment extends Fragment implements IScrollerPageChangeListene
 	public static Integer[] topImagesArray = new Integer[] {
 		R.drawable.goose_head,
 		R.drawable.cat_head,
-		R.drawable.horse_head
+		R.drawable.horse_head,
+		R.drawable.bee_head
 	};
 
 	public static Integer[] middleImagesArray = new Integer[] {
 		R.drawable.goose_body,
 		R.drawable.cat_body,
 		R.drawable.horse_body,
+		R.drawable.bee_body
 	};
 	
 	public static Integer[] bottomImagesArray = new Integer[] {
 		R.drawable.goose_feet,
 		R.drawable.cat_feet,
-		R.drawable.horse_feet
+		R.drawable.horse_feet,
+		R.drawable.bee_feet
 	};
 
 	private ViewPager mTopPager;
