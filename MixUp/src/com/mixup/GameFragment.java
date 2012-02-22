@@ -73,9 +73,9 @@ public class GameFragment extends Fragment implements IScrollerPageChangeListene
 	}
 	
 	public void shuffleImages() {
-		mTopPager.setCurrentItem(mRandom.nextInt()%topImagesArray.length, true);
-		mMiddlePager.setCurrentItem(mRandom.nextInt()%middleImagesArray.length, true);
-		mBottomPager.setCurrentItem(mRandom.nextInt()%bottomImagesArray.length, true);
+		mTopPager.setCurrentItem(mRandom.nextInt()%topImagesArray.length+1, true);
+		mMiddlePager.setCurrentItem(mRandom.nextInt()%middleImagesArray.length+1, true);
+		mBottomPager.setCurrentItem(mRandom.nextInt()%bottomImagesArray.length+1, true);
 	}
 	
 	private int decodeCurrentPosition(int position) {
