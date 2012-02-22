@@ -92,19 +92,27 @@ public class SoundManager {
 		
 		if (topAnimal.equals(middleAnimal)) {
 			if (topAnimal.equals(bottomAnimal))
-				return new Integer[]{ANIMAL_SOUND.get(topAnimal)[FULL_SOUND]};
+				return new Integer[]{
+					R.raw.this_is,
+					ANIMAL_SOUND.get(topAnimal)[FULL_SOUND]};
 			else 
-				return new Integer[]{ANIMAL_SOUND.get(topAnimal)[PART_SOUND], 
-					                 ANIMAL_SOUND.get(bottomAnimal)[FULL_SOUND]};
+				return new Integer[]{
+					R.raw.this_is,
+					ANIMAL_SOUND.get(topAnimal)[PART_SOUND], 
+					ANIMAL_SOUND.get(bottomAnimal)[FULL_SOUND]};
 		}
 		else {
 			if (middleAnimal.equals(bottomAnimal))
-				return new Integer[]{ANIMAL_SOUND.get(topAnimal)[PART_SOUND],
-					                 ANIMAL_SOUND.get(middleAnimal)[FULL_SOUND]};
+				return new Integer[]{
+					R.raw.this_is,
+					ANIMAL_SOUND.get(topAnimal)[PART_SOUND],
+					ANIMAL_SOUND.get(middleAnimal)[FULL_SOUND]};
 			else 
-				return new Integer[]{ANIMAL_SOUND.get(topAnimal)[PART_SOUND], 
-				                     ANIMAL_SOUND.get(middleAnimal)[PART_SOUND],
-				                     ANIMAL_SOUND.get(bottomAnimal)[FULL_SOUND]};
+				return new Integer[]{
+					R.raw.this_is,
+					ANIMAL_SOUND.get(topAnimal)[PART_SOUND], 
+				    ANIMAL_SOUND.get(middleAnimal)[PART_SOUND],
+				    ANIMAL_SOUND.get(bottomAnimal)[FULL_SOUND]};
 		}	
 	}
 
