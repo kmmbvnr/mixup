@@ -1,37 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/about_bkg_color"
     android:orientation="vertical"
     android:src="@drawable/background" >
+<ScrollView android:layout_width="wrap_content"
+    android:layout_height="wrap_content" android:layout_weight="1">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp" >
+    <TextView
+        android:id="@+id/texview_app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/app_name"
+        android:textColor="@color/title_color"
+        android:layout_marginLeft="@dimen/text_title_left_margin"
+        android:textSize="@dimen/text_title_size" />
+
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/textview_about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texview_app_title"
+        android:text="@string/about_title"
+        android:textColor="@color/text_color"
+        android:layout_marginLeft="@dimen/text_left_margin"
+        android:textSize="@dimen/text_size" />
+
+    <TextView
+        android:id="@+id/textView_first_level_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/textview_about"
+        android:text="@string/first_level_title"
+        android:textColor="@color/title_color"
+        android:layout_marginLeft="@dimen/text_title_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_title_size" />
+
+    <TextView
+        android:id="@+id/textview_first_level1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_first_level_title"
+        android:text="@string/about_first_level1"
+        android:textColor="@color/text_color"
+        android:layout_marginLeft="@dimen/text_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_size" />
     
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id= "@+id/text_view_first"
-    	android:layout_width="fill_parent"
-    	android:layout_height="wrap_content"
-    	android:textSize="30dp"
-    	android:text="Подгурская Виталия" >
-    </TextView>
+     <TextView
+        android:id="@+id/textview_first_level2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_first_level1"
+        android:text="@string/about_first_level2"
+        android:textColor="@color/text_color"
+        android:layout_marginLeft="@dimen/text_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_size" />
+     
+      <TextView
+        android:id="@+id/textview_first_level3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_first_level2"
+        android:text="@string/about_first_level3"
+        android:textColor="@color/text_color"
+        android:layout_marginLeft="@dimen/text_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_size" />
+      
+      <TextView
+        android:id="@+id/textView_second_level_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/textview_first_level3"
+        android:text="@string/second_level_title"
+        android:textColor="@color/title_color"
+        android:layout_marginLeft="@dimen/text_title_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_title_size" />
+
+    <TextView
+        android:id="@+id/textview_second_level1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_second_level_title"
+        android:text="@string/about_second_level1"
+        android:textColor="@color/text_color"
+        android:layout_marginLeft="@dimen/text_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_size" />
     
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    	android:id= "@+id/text_view_second"
-    	android:layout_width="fill_parent"
-  	  	android:layout_height="wrap_content"
-  	  	android:textSize="30dp"
-    	android:layout_alignLeft="@+id/text_view_first"
-    	android:layout_below="@+id/text_view_first"
-   		android:text="Подгурская Михаил" >
-    </TextView>
+     <TextView
+        android:id="@+id/textview_second_level2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_second_level1"
+        android:text="@string/about_second_level2"
+        android:textColor="@color/text_color"
+        android:layout_marginLeft="@dimen/text_left_margin"
+        android:layout_marginBottom="@dimen/text_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_size" />
+     
+     <TextView
+        android:id="@+id/textView_developers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/textview_second_level2"
+        android:text="@string/developers"
+        android:textColor="@color/title_color"
+        android:layout_marginLeft="@dimen/text_title_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_title_size" />
+
+    <TextView
+        android:id="@+id/textview_developer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_developers"
+        android:text="@string/developer1"
+        android:textColor="@color/text_color"
+        android:layout_marginLeft="@dimen/text_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_size" />
     
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id= "@+id/text_view_third"
-   		android:layout_width="fill_parent"
-    	android:layout_height="wrap_content"
-    	android:textSize="30dp"
-    	android:layout_alignLeft="@+id/text_view_second"
-    	android:layout_below="@+id/text_view_second"
-    	android:text="Артамонова Татьяна" >
-    </TextView>
-    
+     <TextView
+        android:id="@+id/textview_developer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_developer1"
+        android:text="@string/developer2"
+        android:textColor="@color/text_color"
+        android:layout_marginLeft="@dimen/text_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_size" />
+     <TextView
+        android:id="@+id/textView_designers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/textview_developer2"
+        android:text="@string/designer"
+        android:textColor="@color/title_color"
+        android:layout_marginLeft="@dimen/text_title_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_title_size" />
+
+    <TextView
+        android:id="@+id/textview_designer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_designers"
+        android:text="@string/designer1"
+        android:textColor="@color/text_color"
+        android:layout_marginLeft="@dimen/text_left_margin"
+        android:layout_marginRight="@dimen/text_right_margin"
+        android:textSize="@dimen/text_size" />
+  </RelativeLayout> 
+</ScrollView>
 </RelativeLayout>
