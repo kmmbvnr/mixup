@@ -48,8 +48,8 @@
          android:layout_height="wrap_content"
          android:layout_alignParentBottom="True"
          android:layout_below="@+id/btn_about"
-         android:scaleType="fitXY"
          android:layout_marginTop="15dp"
+         android:scaleType="centerCrop"
          android:src="@drawable/logo_bottom" />
 
 </RelativeLayout>

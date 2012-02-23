@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Путаница</string>
-    <string name="about_title">⋅ Веселая игра для самых маленьких!</string>
-    <string name="first_level_title">Угадай кто?</string>
-    <string name="about_first_level1">⋅ Составляй новых животный, меняя им голову, туловище или ноги.</string>
-    <string name="about_first_level2">⋅ Встряхни телефон, чтобы запутать еще больше!</string>
-    <string name="about_first_level3">⋅ Придумай название сам или слушай предложененное.</string>
-    <string name="second_level_title">Собирай!</string>
-    <string name="about_second_level1">⋅ Успей собрать животное на время.</string>
-    <string name="about_second_level2">⋅ Сложность увеличивается, а время уменьшается!</string>
-    <string name="developers">Разработчики:</string>
-    <string name="developer1">⋅ Подгурская Виталия</string>
-    <string name="developer2">⋅ Подгурский Михаил</string>
-    <string name="designer">Дизайнер:</string>
-    <string name="designer1">⋅ Артамонова Татьяна</string>
+    <string name="app_name">Mix Up</string>
+    <string name="about_title">⋅ Funny game for little kids!</string>
+    <string name="first_level_title">Guess who?</string>
+    <string name="about_first_level1">⋅ Create new animals by changing their heads, bodies or feet</string>
+    <string name="about_first_level2">⋅ Shake device to mix up more!</string>
+    <string name="about_first_level3">⋅ Make up names or listen ours.</string>
+    <string name="second_level_title">Quiz!</string>
+    <string name="about_second_level1">⋅ Collect animals at the time.</string>
+    <string name="about_second_level2">⋅ Complexity increases, time decreases!</string>
+    <string name="developers">Developers:</string>
+    <string name="developer1">⋅ Podgurskyay Vitalia</string>
+    <string name="developer2">⋅ Podgurskii Mikhail</string>
+    <string name="designer">Designer:</string>
+    <string name="designer1">⋅ Artamonova Tatiana</string>
 
 </resources>
