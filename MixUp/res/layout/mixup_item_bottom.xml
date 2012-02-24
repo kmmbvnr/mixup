@@ -12,7 +12,6 @@
         android:layout_gravity="top|center_horizontal"
         android:scaleType="fitCenter"
         android:src="@drawable/item_image_bottom"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/hello"/>
+        android:adjustViewBounds="true" />
 
 </FrameLayout>

@@ -58,7 +58,11 @@ public class SoundManager {
 	
 	public void playStateSound(GameState state, Context context) {
 		Integer[] sounds = getSoundArrayForState(state);
-		playSound(context, sounds, 0);
+		Integer[] allSounds = new Integer[sounds.length+1];
+		allSounds[0] = R.raw.this_is;
+		for (int i=0; i<sounds.length; i++)
+			allSounds[i+1] = sounds[i];
+		playSound(context, allSounds, 0);
 	}
 	
 	public void playPuzzleSound(GameState state, Context context) {
@@ -69,7 +73,7 @@ public class SoundManager {
 			allSounds[i+1] = sounds[i];
 		playSound(context, allSounds, 0);
 	}
-         
+
 	private void playSound(final Context context, final Integer[] sounds, final Integer soundIndex) {
 		if (soundIndex < sounds.length) {
 			MediaPlayer mp = MediaPlayer.create(context, sounds[soundIndex]);   
@@ -93,23 +97,19 @@ public class SoundManager {
 		if (topAnimal.equals(middleAnimal)) {
 			if (topAnimal.equals(bottomAnimal))
 				return new Integer[]{
-					R.raw.this_is,
 					ANIMAL_SOUND.get(topAnimal)[FULL_SOUND]};
 			else 
 				return new Integer[]{
-					R.raw.this_is,
 					ANIMAL_SOUND.get(topAnimal)[PART_SOUND], 
 					ANIMAL_SOUND.get(bottomAnimal)[FULL_SOUND]};
 		}
 		else {
 			if (middleAnimal.equals(bottomAnimal))
 				return new Integer[]{
-					R.raw.this_is,
 					ANIMAL_SOUND.get(topAnimal)[PART_SOUND],
 					ANIMAL_SOUND.get(middleAnimal)[FULL_SOUND]};
 			else 
 				return new Integer[]{
-					R.raw.this_is,
 					ANIMAL_SOUND.get(topAnimal)[PART_SOUND], 
 				    ANIMAL_SOUND.get(middleAnimal)[PART_SOUND],
 				    ANIMAL_SOUND.get(bottomAnimal)[FULL_SOUND]};
