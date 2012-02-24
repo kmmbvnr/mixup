@@ -9,6 +9,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
@@ -32,6 +33,7 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
+    	long a = Debug.getNativeHeapAllocatedSize();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
         
@@ -54,6 +56,8 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
         mAccel = 0.00f;
         mAccelCurrent = SensorManager.GRAVITY_EARTH;
         mAccelLast = SensorManager.GRAVITY_EARTH;
+    	a = Debug.getNativeHeapAllocatedSize();
+
 	}
      
 	@Override
