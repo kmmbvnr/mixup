@@ -15,5 +15,6 @@
     <string name="developer2">⋅ Подгурский Михаил</string>
     <string name="designer">Дизайнер:</string>
     <string name="designer1">⋅ Артамонова Татьяна</string>
-
+    <string name="hackathon">Эта игра была создана в рамках глобального Android хакатона в Omsk Google Technology User Group.</string>
+	<string name="gtug_link">http://omsk.gtugs.org</string>
 </resources>

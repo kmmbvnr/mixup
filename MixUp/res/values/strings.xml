@@ -15,5 +15,6 @@
     <string name="developer2">⋅ Podgurskii Mikhail</string>
     <string name="designer">Designer:</string>
     <string name="designer1">⋅ Artamonova Tatiana</string>
-
+	<string name="hackathon">This game was created on Global Android Hackathon in Omsk Google Technology User Group.</string>
+    
 </resources>
