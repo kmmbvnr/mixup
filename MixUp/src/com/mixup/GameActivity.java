@@ -149,7 +149,7 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
 	
 	@Override
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
-	//	mGameFragment.shuffleImages();
+		mGameFragment.shuffleImages();
 		return super.onKeyUp(keyCode, event);
 	}
 }

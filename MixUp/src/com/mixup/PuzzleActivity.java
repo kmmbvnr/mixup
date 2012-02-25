@@ -74,8 +74,13 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
 	}
 	
 	public void startNewLevel() {
-		mCurrentPuzzle = new Puzzle(LEVELS[mCurrentLevel][1]);
-		mSoundManager.playPuzzleSound(mCurrentPuzzle.getPuzzle(), this);
+		if(mCurrentPuzzle == null) {
+			mCurrentPuzzle = new Puzzle(LEVELS[mCurrentLevel][1]);
+			mSoundManager.playPuzzleSound(mCurrentPuzzle.getPuzzle(), this);
+		} else {
+			mCurrentPuzzle = new Puzzle(LEVELS[mCurrentLevel][1]);
+			mSoundManager.playNextPuzzleSound(mCurrentPuzzle.getPuzzle(), this);			
+		}
 		mStartTime = System.currentTimeMillis();
 		mTimerText.setTextColor(getResources().getColor(R.color.default_text_color));
 		mTimer = new Timer();
@@ -106,6 +111,7 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
 	public void Lose(boolean outOfTime) {
 		mTimer.cancel();
 		mCurrentLevel = 0;
+		mCurrentPuzzle = null;
 		AlertDialog dialog = new AlertDialog.Builder(this).create();
 		if(outOfTime) {
 			dialog.setMessage("Время истекло");

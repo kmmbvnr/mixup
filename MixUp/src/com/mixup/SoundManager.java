@@ -74,6 +74,16 @@ public class SoundManager {
 		playSound(context, allSounds, 0);
 	}
 
+	public void playNextPuzzleSound(GameState state, Context context) {
+		Integer[] sounds = getSoundArrayForState(state);
+		Integer[] allSounds = new Integer[sounds.length+2];
+		allSounds[0] = R.raw.good_job;
+		allSounds[1] = R.raw.how_it_looks;
+		for (int i=0; i<sounds.length; i++)
+			allSounds[i+2] = sounds[i];
+		playSound(context, allSounds, 0);		
+	}
+
 	private void playSound(final Context context, final Integer[] sounds, final Integer soundIndex) {
 		if (soundIndex < sounds.length) {
 			MediaPlayer mp = MediaPlayer.create(context, sounds[soundIndex]);   
