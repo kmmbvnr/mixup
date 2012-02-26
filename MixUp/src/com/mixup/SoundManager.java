@@ -14,7 +14,6 @@ public class SoundManager {
 	public static final Integer BEE = 4;
 	public static final Integer DOLPHIN = 5;
 	
-	
 	public static final HashMap<Integer, Integer> ANIMAL_NAMES = new HashMap<Integer, Integer>() {
 		private static final long serialVersionUID = -8836643891432595645L;
 
@@ -56,7 +55,12 @@ public class SoundManager {
 	private static final Integer FULL_SOUND = 0;
 	private static final Integer PART_SOUND = 1;
 	
+	private boolean mIsPlaying = false;
+	
 	public void playStateSound(GameState state, Context context) {
+		if (mIsPlaying)
+			return;
+		mIsPlaying = true;
 		Integer[] sounds = getSoundArrayForState(state);
 		Integer[] allSounds = new Integer[sounds.length+1];
 		allSounds[0] = R.raw.this_is;
@@ -66,6 +70,9 @@ public class SoundManager {
 	}
 	
 	public void playPuzzleSound(GameState state, Context context) {
+		if (mIsPlaying)
+			return;
+		mIsPlaying = true;
 		Integer[] sounds = getSoundArrayForState(state);
 		Integer[] allSounds = new Integer[sounds.length+1];
 		allSounds[0] = R.raw.how_it_looks;
@@ -75,6 +82,9 @@ public class SoundManager {
 	}
 
 	public void playNextPuzzleSound(GameState state, Context context) {
+		if (mIsPlaying)
+			return;
+		mIsPlaying = true;
 		Integer[] sounds = getSoundArrayForState(state);
 		Integer[] allSounds = new Integer[sounds.length+2];
 		allSounds[0] = R.raw.good_job;
@@ -95,7 +105,9 @@ public class SoundManager {
 	                playSound(context, sounds, soundIndex+1);
 	            }
 	        });	
-		}	
+		}
+		else
+			mIsPlaying = false;
 	}
         
 	
