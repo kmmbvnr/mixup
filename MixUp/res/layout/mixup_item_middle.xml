@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical|center_horizontal"
         android:adjustViewBounds="true"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        android:src="@drawable/cat_body" />
 
 </FrameLayout>
