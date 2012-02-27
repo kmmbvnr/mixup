@@ -14,6 +14,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
@@ -58,6 +59,7 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
         mAccelLast = SensorManager.GRAVITY_EARTH;
     	a = Debug.getNativeHeapAllocatedSize();
 
+    	getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	}
      
 	@Override

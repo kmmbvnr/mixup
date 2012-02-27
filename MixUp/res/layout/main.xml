@@ -49,8 +49,7 @@
          android:layout_height="wrap_content"
          android:layout_alignParentBottom="true"
          android:layout_centerHorizontal="true"
-         android:layout_marginTop="15dp"
-         android:scaleType="centerInside"
+         android:scaleType="centerCrop"
          android:src="@drawable/logo_bottom2" />
 
 </RelativeLayout>

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -55,6 +56,8 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
         
         mSoundManager = new SoundManager();
 		mGameFragment.shuffleImages();
+		
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	}
 	
 	@Override

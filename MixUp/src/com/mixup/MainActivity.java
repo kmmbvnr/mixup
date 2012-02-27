@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 
 public class MainActivity extends Activity implements OnClickListener {
@@ -26,6 +27,8 @@ public class MainActivity extends Activity implements OnClickListener {
         
         mAboutBtn = (Button)findViewById(R.id.btn_about);
         mAboutBtn.setOnClickListener(this);
+        
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
 	@Override
