@@ -112,18 +112,19 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
 	}
 	
 	public void Lose(boolean outOfTime) {
-		mTimer.cancel();
-		mCurrentLevel = 0;
-		mCurrentPuzzle = null;
-		AlertDialog dialog = new AlertDialog.Builder(this).create();
 		if(outOfTime) {
+			mTimer.cancel();
+			mCurrentLevel = 0;
+			mCurrentPuzzle = null;
+			mSoundManager.playTimeoutSound(this);
+			AlertDialog dialog = new AlertDialog.Builder(this).create();
 			dialog.setMessage("Время истекло");
+			dialog.setButton("Еще раз", this);
+			dialog.setButton2("Закончить", this);
+			dialog.show();
 		} else {
-			dialog.setMessage("Неправильно");
+			mSoundManager.playNotCorrectPuzzleSound(mCurrentPuzzle.getPuzzle(), this);
 		}
-		dialog.setButton("Еще раз", this);
-		dialog.setButton2("Закончить", this);
-		dialog.show();
 	}
 	
 	public void Win() {
@@ -132,12 +133,14 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
 		if(mCurrentLevel < LEVELS.length) { 
 			startNewLevel();
 		} else {
-			mCurrentLevel = 0;
+			mSoundManager.playWinSound(this);
 			AlertDialog dialog = new AlertDialog.Builder(this).create();
 			dialog.setMessage("Вы победили!");
 			dialog.setButton("Еще раз", this);
 			dialog.setButton2("Закончить", this);
 			dialog.show();			
+			mCurrentLevel = 0;		
+			mCurrentPuzzle = null;
 		}
 	}
 	
@@ -162,7 +165,6 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
 	@Override
 	public void onClick(View view) {
 		if(view == mCheckBtn) {
-			mTimer.cancel();
 			if(mCurrentPuzzle.check(mState)) {
 				Win();
 			} else {

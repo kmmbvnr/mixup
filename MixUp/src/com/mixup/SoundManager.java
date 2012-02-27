@@ -55,6 +55,9 @@ public class SoundManager {
 		R.raw.its_correct, R.raw.its_good, 
 		R.raw.good_boy };
 	
+	public static final int LOOSE_SOUNDS[] = { 
+		R.raw.not_right, R.raw.not_right2 };
+
 	private static final Integer FULL_SOUND = 0;
 	private static final Integer PART_SOUND = 1;
 	
@@ -102,6 +105,27 @@ public class SoundManager {
 		playSound(context, allSounds, 0);		
 	}
 
+	public void playNotCorrectPuzzleSound(GameState state, Context context) {
+		if (mIsPlaying)
+			return;
+		mIsPlaying = true;
+		Integer[] sounds = getSoundArrayForState(state);
+		Integer[] allSounds = new Integer[sounds.length+2];
+		allSounds[0] = LOOSE_SOUNDS[mRandom.nextInt(LOOSE_SOUNDS.length)];
+		allSounds[1] = R.raw.how_it_looks;
+		for (int i=0; i<sounds.length; i++)
+			allSounds[i+2] = sounds[i];
+		playSound(context, allSounds, 0);		
+	}
+	
+	public void playWinSound(Context context) {
+		playSound(context, new Integer[] { R.raw.win }, 0);	
+	}
+
+	public void playTimeoutSound(Context context) {
+		playSound(context, new Integer[] { R.raw.loose }, 0);	
+	}	
+
 	private void playSound(final Context context, final Integer[] sounds, final Integer soundIndex) {
 		if (soundIndex < sounds.length) {
 			MediaPlayer mp = MediaPlayer.create(context, sounds[soundIndex]);   
@@ -145,5 +169,4 @@ public class SoundManager {
 				    ANIMAL_SOUND.get(bottomAnimal)[FULL_SOUND]};
 		}	
 	}
-
 }
