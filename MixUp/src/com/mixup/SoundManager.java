@@ -1,6 +1,7 @@
 package com.mixup;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -39,9 +40,6 @@ public class SoundManager {
 	};
 	
 	private static final HashMap<Integer, Integer[]> ANIMAL_SOUND = new HashMap<Integer, Integer[]>() {
-		/**
-		 * 
-		 */
 		private static final long serialVersionUID = 2303590782329043721L;
 		{
 			put(CAT, new Integer[]{R.raw.cat_full, R.raw.cat_part});
@@ -52,10 +50,20 @@ public class SoundManager {
 		}
 	};
 	
+	public static final int WIN_SOUNDS[] = { 
+		R.raw.good_job, R.raw.well_done, 
+		R.raw.its_correct, R.raw.its_good, 
+		R.raw.good_boy };
+	
 	private static final Integer FULL_SOUND = 0;
 	private static final Integer PART_SOUND = 1;
 	
 	private boolean mIsPlaying = false;
+	private Random mRandom;
+	
+	public SoundManager() {
+		mRandom = new Random();
+	}
 	
 	public void playStateSound(GameState state, Context context) {
 		if (mIsPlaying)
@@ -87,7 +95,7 @@ public class SoundManager {
 		mIsPlaying = true;
 		Integer[] sounds = getSoundArrayForState(state);
 		Integer[] allSounds = new Integer[sounds.length+2];
-		allSounds[0] = R.raw.good_job;
+		allSounds[0] = WIN_SOUNDS[mRandom.nextInt(WIN_SOUNDS.length)];
 		allSounds[1] = R.raw.how_it_looks;
 		for (int i=0; i<sounds.length; i++)
 			allSounds[i+2] = sounds[i];
