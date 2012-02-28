@@ -1,5 +1,6 @@
-package com.mixup;
+package cc.wthr.mixup;
 
+import cc.wthr.mixup.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,7 +1,9 @@
-package com.mixup;
+package cc.wthr.mixup;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import cc.wthr.mixup.R;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

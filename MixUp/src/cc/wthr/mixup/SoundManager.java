@@ -1,7 +1,9 @@
-package com.mixup;
+package cc.wthr.mixup;
 
 import java.util.HashMap;
 import java.util.Random;
+
+import cc.wthr.mixup.R;
 
 import android.content.Context;
 import android.media.MediaPlayer;

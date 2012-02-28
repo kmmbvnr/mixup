@@ -1,5 +1,6 @@
-package com.mixup;
+package cc.wthr.mixup;
 
+import cc.wthr.mixup.R;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;

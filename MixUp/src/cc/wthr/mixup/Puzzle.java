@@ -1,4 +1,4 @@
-package com.mixup;
+package cc.wthr.mixup;
 
 import java.util.Random;
 

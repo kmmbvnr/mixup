@@ -1,4 +1,4 @@
-package com.mixup;
+package cc.wthr.mixup;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

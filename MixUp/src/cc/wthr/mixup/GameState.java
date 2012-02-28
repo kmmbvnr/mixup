@@ -1,4 +1,4 @@
-package com.mixup;
+package cc.wthr.mixup;
 
 public class GameState {
 	

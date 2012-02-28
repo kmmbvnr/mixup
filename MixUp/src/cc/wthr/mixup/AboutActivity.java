@@ -1,5 +1,6 @@
-package com.mixup;
+package cc.wthr.mixup;
 
+import cc.wthr.mixup.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -13,8 +14,6 @@ public class AboutActivity extends Activity {
 		setContentView(R.layout.about);
 		
 		WebView webView = (WebView)findViewById(R.id.about_webview);
-		
-		 webView.loadUrl("file:///android_asset/about/about.html");
-
+		webView.loadUrl("file:///android_asset/about/about.html");
 	}
 }

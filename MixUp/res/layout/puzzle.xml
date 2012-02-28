@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/game_fragment"
-        android:name="com.mixup.GameFragment"
+        android:name="cc.wthr.mixup.GameFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/check_button"

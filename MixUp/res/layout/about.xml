@@ -4,12 +4,15 @@
     android:layout_height="match_parent"
     android:background="@color/about_bkg_color"
     android:orientation="vertical"
-    android:src="@drawable/background" >
+    android:src="@drawable/background_main" >
 	
-	<WebView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/about_webview">
+	<WebView
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/about_webview"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="@drawable/background_main" >
+
     </WebView>
     
 </RelativeLayout>
