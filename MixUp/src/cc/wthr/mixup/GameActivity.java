@@ -13,7 +13,6 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
@@ -147,9 +146,9 @@ public class GameActivity extends FragmentActivity implements IGameStateListener
 		mGameFragment.shuffleImages();
 	}
 	
-	@Override
-	public boolean onKeyUp(int keyCode, KeyEvent event) {
-		mGameFragment.shuffleImages();
-		return super.onKeyUp(keyCode, event);
-	}
+//	@Override
+//	public boolean onKeyUp(int keyCode, KeyEvent event) {
+//		mGameFragment.shuffleImages();
+//		return super.onKeyUp(keyCode, event);
+//	}
 }
