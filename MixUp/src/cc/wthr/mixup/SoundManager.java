@@ -121,17 +121,18 @@ public class SoundManager {
 	}
 	
 	public void playWinSound(Context context) {
+		mIsPlaying = true;
 		playSound(context, new Integer[] { R.raw.win }, 0);	
 	}
 
 	public void playTimeoutSound(Context context) {
+		mIsPlaying = true;
 		playSound(context, new Integer[] { R.raw.loose }, 0);	
 	}	
 
 	private void playSound(final Context context, final Integer[] sounds, final Integer soundIndex) {
 		if (soundIndex < sounds.length) {
 			MediaPlayer mp = MediaPlayer.create(context, sounds[soundIndex]);   
-	        mp.start();
 	        mp.setOnCompletionListener(new OnCompletionListener() {
 	            @Override
 	            public void onCompletion(MediaPlayer mp) {
@@ -139,6 +140,7 @@ public class SoundManager {
 	                playSound(context, sounds, soundIndex+1);
 	            }
 	        });	
+	        mp.start();
 		}
 		else
 			mIsPlaying = false;
