@@ -4,7 +4,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import cc.wthr.mixup.R;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -120,9 +119,9 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
 			mCurrentPuzzle = null;
 			mSoundManager.playTimeoutSound(this);
 			AlertDialog dialog = new AlertDialog.Builder(this).create();
-			dialog.setMessage("Время истекло");
-			dialog.setButton("Еще раз", this);
-			dialog.setButton2("Закончить", this);
+			dialog.setMessage(getString(R.string.time_is_out));
+			dialog.setButton(getString(R.string.try_again), this);
+			dialog.setButton2(getString(R.string.finish), this);
 			dialog.show();
 		} else {
 			mSoundManager.playNotCorrectPuzzleSound(mCurrentPuzzle.getPuzzle(), this);
@@ -137,9 +136,9 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
 		} else {
 			mSoundManager.playWinSound(this);
 			AlertDialog dialog = new AlertDialog.Builder(this).create();
-			dialog.setMessage("Вы победили!");
-			dialog.setButton("Еще раз", this);
-			dialog.setButton2("Закончить", this);
+			dialog.setMessage(getString(R.string.you_win));
+			dialog.setButton(getString(R.string.try_again), this);
+			dialog.setButton2(getString(R.string.finish), this);
 			dialog.show();			
 			mCurrentLevel = 0;		
 			mCurrentPuzzle = null;

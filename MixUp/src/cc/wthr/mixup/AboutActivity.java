@@ -12,8 +12,13 @@ public class AboutActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.about);
-		
 		WebView webView = (WebView)findViewById(R.id.about_webview);
-		webView.loadUrl("file:///android_asset/about/about.html");
+	
+		if (getString(R.string.app_name).equals("Путаница")) {
+			webView.loadUrl("file:///android_asset/about/about_ru.html");
+		}
+		else {
+			webView.loadUrl("file:///android_asset/about/about_en.html");
+		}	
 	}
 }
