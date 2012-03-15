@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Mix Up</string>
-    <string name="time_is_out">Time is out</string>
-  	<string name="try_again">Try again</string>
-  	<string name="finish">Finish</string>
-  	<string name="you_win">You win!</string>
-    
+    <string name="app_name">Путаница</string>
+  	<string name="time_is_out">Время истекло</string>
+  	<string name="try_again">Еще раз</string>
+  	<string name="finish">Закончить</string>
+  	<string name="you_win">Вы победили!</string>
 </resources>

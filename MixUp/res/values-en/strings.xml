@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Mix Up</string>
+    <string name="time_is_out">Time is out</string>
+  	<string name="try_again">Try again</string>
+  	<string name="finish">Finish</string>
+  	<string name="you_win">You win!</string>
+    
+</resources>
