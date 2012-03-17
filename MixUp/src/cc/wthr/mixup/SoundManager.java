@@ -2,6 +2,8 @@ package cc.wthr.mixup;
 
 import java.util.HashMap;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import cc.wthr.mixup.R;
 
@@ -137,15 +139,19 @@ public class SoundManager {
 	            @Override
 	            public void onCompletion(MediaPlayer mp) {
 	                mp.release();
-	                playSound(context, sounds, soundIndex+1);
 	            }
 	        });	
+	        new Timer().schedule(new TimerTask() {
+				@Override
+				public void run() {
+					playSound(context, sounds, soundIndex+1);
+				}
+			}, mp.getDuration()-400);
 	        mp.start();
 		}
 		else
 			mIsPlaying = false;
-	}
-        
+	}        
 	
 	private Integer[] getSoundArrayForState(GameState state) {
 		Integer topAnimal = ANIMAL_NAMES.get(state.getTopImageId());
