@@ -152,7 +152,7 @@ public class SoundManager {
 		else
 			mIsPlaying = false;
 	}        
-	
+
 	private Integer[] getSoundArrayForState(GameState state) {
 		Integer topAnimal = ANIMAL_NAMES.get(state.getTopImageId());
 		Integer middleAnimal = ANIMAL_NAMES.get(state.getMiddleImageId());
