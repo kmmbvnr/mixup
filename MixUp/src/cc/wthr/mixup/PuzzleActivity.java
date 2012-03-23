@@ -7,6 +7,7 @@ import cc.wthr.mixup.R;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -59,6 +60,8 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
 		mGameFragment.shuffleImages();
 		
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		
+		this.setVolumeControlStream(AudioManager.STREAM_MUSIC); 
 	}
 	
 	@Override
@@ -82,7 +85,11 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
 			mCurrentPuzzle = new Puzzle(LEVELS[mCurrentLevel][1]);
 			mSoundManager.playPuzzleSound(mCurrentPuzzle.getPuzzle(), this);
 		} else {
-			mCurrentPuzzle = new Puzzle(LEVELS[mCurrentLevel][1]);
+			Puzzle newPuzzle = new Puzzle(LEVELS[mCurrentLevel][1]);
+			while (newPuzzle.getPuzzle().equals(mCurrentPuzzle.getPuzzle())) {
+				newPuzzle = new Puzzle(LEVELS[mCurrentLevel][1]);
+			}
+			mCurrentPuzzle = newPuzzle;
 			mSoundManager.playNextPuzzleSound(mCurrentPuzzle.getPuzzle(), this);			
 		}
 		mStartTime = System.currentTimeMillis();

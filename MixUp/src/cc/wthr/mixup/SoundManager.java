@@ -85,8 +85,6 @@ public class SoundManager {
 	}
 	
 	public void playPuzzleSound(GameState state, Context context) {
-		if (mIsPlaying)
-			return;
 		mIsPlaying = true;
 		Integer[] sounds = getSoundArrayForState(state);
 		Integer[] allSounds = new Integer[sounds.length+1];
@@ -94,6 +92,7 @@ public class SoundManager {
 		for (int i=0; i<sounds.length; i++)
 			allSounds[i+1] = sounds[i];
 		playSound(context, allSounds, 0);
+		
 	}
 
 	public void playNextPuzzleSound(GameState state, Context context) {
