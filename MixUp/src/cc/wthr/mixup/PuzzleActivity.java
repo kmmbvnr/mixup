@@ -80,6 +80,13 @@ public class PuzzleActivity extends FragmentActivity implements OnClickListener,
         super.onStart();
 	}
 	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		
+		mTimer.cancel();
+	}
+	
 	public void startNewLevel() {
 		if(mCurrentPuzzle == null) {
 			mCurrentPuzzle = new Puzzle(LEVELS[mCurrentLevel][1]);
