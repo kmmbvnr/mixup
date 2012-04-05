@@ -18,6 +18,7 @@ public class SoundManager {
 	public static final Integer HORSE = 3;
 	public static final Integer BEE = 4;
 	public static final Integer DOLPHIN = 5;
+	public static final Integer OCTOPUS = 6;
 	
 	public static final HashMap<Integer, Integer> ANIMAL_NAMES = new HashMap<Integer, Integer>() {
 		private static final long serialVersionUID = -8836643891432595645L;
@@ -38,7 +39,9 @@ public class SoundManager {
 			put(R.drawable.dolphin_head, DOLPHIN);
 			put(R.drawable.dolphin_body, DOLPHIN);
 			put(R.drawable.dolphin_feet, DOLPHIN);
-			
+			put(R.drawable.octopus_head, OCTOPUS);
+			put(R.drawable.octopus_body, OCTOPUS);
+			put(R.drawable.octopus_feet, OCTOPUS);
 		}
 		
 	};
@@ -51,6 +54,7 @@ public class SoundManager {
 			put(HORSE, new Integer[]{R.raw.horse_full, R.raw.horse_part});
 			put(BEE, new Integer[]{R.raw.bee_full, R.raw.bee_part});
 			put(DOLPHIN, new Integer[]{R.raw.dolphin_full, R.raw.dolphin_part});
+			put(OCTOPUS, new Integer[]{R.raw.octopus_full, R.raw.octopus_part});
 		}
 	};
 	
@@ -145,7 +149,7 @@ public class SoundManager {
 				public void run() {
 					playSound(context, sounds, soundIndex+1);
 				}
-			}, mp.getDuration()-400);
+			}, mp.getDuration()-350);
 	        mp.start();
 		}
 		else

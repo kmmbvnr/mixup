@@ -17,7 +17,8 @@ public class GameFragment extends Fragment implements IScrollerPageChangeListene
 		R.drawable.cat_head,
 		R.drawable.horse_head,
 		R.drawable.bee_head,
-		R.drawable.dolphin_head
+		R.drawable.dolphin_head,
+		R.drawable.octopus_head
 	};
 
 	public static Integer[] middleImagesArray = new Integer[] {
@@ -25,7 +26,8 @@ public class GameFragment extends Fragment implements IScrollerPageChangeListene
 		R.drawable.cat_body,
 		R.drawable.horse_body,
 		R.drawable.bee_body,
-		R.drawable.dolphin_body
+		R.drawable.dolphin_body,
+		R.drawable.octopus_body
 	};
 	
 	public static Integer[] bottomImagesArray = new Integer[] {
@@ -33,7 +35,8 @@ public class GameFragment extends Fragment implements IScrollerPageChangeListene
 		R.drawable.cat_feet,
 		R.drawable.horse_feet,
 		R.drawable.bee_feet,
-		R.drawable.dolphin_feet
+		R.drawable.dolphin_feet,
+		R.drawable.octopus_feet
 	};
 
 	private ViewPager mTopPager;
